@@ -1,0 +1,360 @@
+.about-page {
+  padding-top: 8rem;
+  padding-bottom: 6rem;
+  min-height: 100vh;
+}
+
+.about-header {
+  text-align: center;
+  margin-bottom: 5rem;
+}
+
+.about-title {
+  font-family: var(--font-sans);
+  font-size: 2.5rem; /* Mobile Base */
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+  color: white;
+}
+
+@media (min-width: 768px) {
+  .about-title {
+    font-size: 3.5rem; /* Tablet */
+  }
+}
+
+@media (min-width: 1024px) {
+  .about-title {
+    font-size: 4.5rem; /* Laptop */
+  }
+}
+
+@media (min-width: 1536px) {
+  .about-title {
+    font-size: 5.5rem; /* Desktop */
+  }
+}
+
+.about-subtitle {
+  font-size: 1.125rem;
+  color: var(--text-muted);
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* Grid Layout */
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 4rem;
+  margin-bottom: 6rem;
+}
+
+@media (min-width: 1024px) {
+  .about-grid {
+    grid-template-columns: 0.8fr 1.2fr;
+    align-items: start;
+  }
+}
+
+/* Image Column */
+.about-image-col {
+  position: relative;
+  height: 100%;
+}
+
+.profile-image-wrapper {
+  position: sticky;
+  top: 25%;
+  width: 100%;
+  aspect-ratio: 1/1;
+  border-radius: 1.5rem;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background-color: #000;
+  transform: translateZ(0);
+  will-change: transform;
+  backface-visibility: hidden;
+}
+
+.profile-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition:
+    filter 0.5s ease,
+    transform 0.7s ease;
+}
+
+.profile-image-wrapper:hover .profile-image {
+  transform: scale(1.03);
+}
+
+.experience-badge {
+  position: absolute;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  background-color: var(--accent-color);
+  color: black;
+  padding: 1rem 1.5rem;
+  border-radius: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+  z-index: 10;
+}
+
+.years {
+  font-family: var(--font-sans);
+  font-size: 2.5rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  line-height: 1.2;
+}
+
+/* Content Column */
+.about-content-col {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.section-heading {
+  font-family: var(--font-sans);
+  font-size: 1.75rem;
+  margin-bottom: 1.5rem;
+  color: white;
+}
+
+.bio-text {
+  color: #d1d5db;
+  line-height: 1.7;
+  font-size: 1.05rem;
+  margin-bottom: 1.5rem;
+}
+
+.bio-text strong {
+  color: white;
+}
+
+/* Philosophy Grid */
+.philosophy-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+@media (min-width: 640px) {
+  .philosophy-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.philosophy-card {
+  background-color: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 1.5rem;
+  border-radius: 1rem;
+  transition:
+    transform 0.3s,
+    background-color 0.3s;
+}
+
+.philosophy-card:hover {
+  background-color: rgba(255, 255, 255, 0.06);
+  transform: translateY(-5px);
+}
+
+.philo-icon {
+  margin-bottom: 1rem;
+  width: 1.75rem;
+  height: 1.75rem;
+}
+
+.text-red {
+  color: #f87171;
+}
+.text-blue {
+  color: #60a5fa;
+}
+.text-purple {
+  color: #c084fc;
+}
+.text-yellow {
+  color: #facc15;
+}
+
+.philosophy-card h4 {
+  color: white;
+  font-size: 1.1rem;
+  font-weight: 500;
+  margin: 0 0 0.5rem 0;
+  font-family: var(--font-sans);
+}
+
+.philosophy-card p {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* Stats Strip */
+.stats-strip {
+  width: 100%;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 2rem 0;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.stat-item {
+  text-align: center;
+}
+
+.stat-num {
+  display: block;
+  font-family: var(--font-sans);
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: white;
+}
+
+.stat-lbl {
+  color: var(--text-muted);
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+}
+
+.about-cta {
+  margin-top: 2.5rem;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.about-cta-inner {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+/* =========================================
+   ENTRANCE ANIMATIONS (Hero Style)
+   ========================================= */
+
+/* 1. Cinematic Title Reveal (Fade + Scale Up + Blur Out) */
+@keyframes about-title-reveal {
+  0% {
+    opacity: 0;
+    transform: translateY(40px) scale(0.95);
+    filter: blur(12px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+}
+
+/* 2. Elegant Content Slide Up (Standard Fade Up) */
+@keyframes about-content-slide-up {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 3. Image Rise (Scale + Fade) */
+@keyframes about-image-rise {
+  0% {
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Utility Classes */
+
+.anim-title-reveal {
+  opacity: 0;
+  animation: about-title-reveal 1.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  will-change: transform, opacity, filter;
+}
+
+.anim-fade-up {
+  opacity: 0;
+  animation: about-content-slide-up 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  will-change: transform, opacity;
+}
+
+.anim-image-enter {
+  opacity: 0;
+  animation: about-image-rise 1.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  will-change: transform, opacity;
+}
+
+/* Delays */
+.delay-100 {
+  animation-delay: 0.1s;
+}
+.delay-200 {
+  animation-delay: 0.2s;
+}
+.delay-300 {
+  animation-delay: 0.3s;
+}
+.delay-400 {
+  animation-delay: 0.4s;
+}
+.delay-500 {
+  animation-delay: 0.5s;
+}
+.delay-600 {
+  animation-delay: 0.6s;
+}
+
+/* Stagger Logic */
+.philosophy-card.anim-fade-up:nth-child(1) {
+  animation-delay: 0.4s;
+}
+.philosophy-card.anim-fade-up:nth-child(2) {
+  animation-delay: 0.5s;
+}
+.philosophy-card.anim-fade-up:nth-child(3) {
+  animation-delay: 0.6s;
+}
+.philosophy-card.anim-fade-up:nth-child(4) {
+  animation-delay: 0.7s;
+}
+
+.stat-item.anim-fade-up:nth-child(1) {
+  animation-delay: 0.6s;
+}
+.stat-item.anim-fade-up:nth-child(2) {
+  animation-delay: 0.7s;
+}
+.stat-item.anim-fade-up:nth-child(3) {
+  animation-delay: 0.8s;
+}

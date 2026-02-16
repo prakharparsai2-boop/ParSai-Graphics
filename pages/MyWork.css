@@ -1,0 +1,131 @@
+.my-work-page {
+  padding-top: 8rem;
+  min-height: 100vh;
+}
+
+.my-work-header {
+  text-align: center;
+  margin-bottom: 4rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.my-work-title {
+  font-family: var(--font-sans);
+  font-size: 2.75rem; /* Mobile Base */
+  font-weight: 800;
+  color: white;
+  margin-bottom: 1.5rem;
+  line-height: 1.1;
+}
+
+@media (min-width: 768px) {
+  .my-work-title {
+    font-size: 4rem; /* Tablet */
+  }
+}
+
+@media (min-width: 1024px) {
+  .my-work-title {
+    font-size: 5rem; /* Laptop */
+  }
+}
+
+@media (min-width: 1536px) {
+  .my-work-title {
+    font-size: 6rem; /* Desktop */
+  }
+}
+
+.my-work-subtitle {
+  font-size: 1.125rem;
+  color: var(--text-muted);
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.my-work-contact-wrapper {
+  margin-top: 4rem;
+}
+
+/* =========================================
+   ENTRANCE ANIMATIONS
+   ========================================= */
+
+/* Cinematic Title Reveal */
+@keyframes work-title-reveal {
+  0% {
+    opacity: 0;
+    transform: translateY(40px) scale(0.95);
+    filter: blur(12px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+}
+
+/* Smooth Fade Up */
+@keyframes work-fade-up {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.anim-work-title {
+  opacity: 0;
+  animation: work-title-reveal 1.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  will-change: transform, opacity, filter;
+}
+
+.anim-work-fade {
+  opacity: 0;
+  animation: work-fade-up 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  will-change: transform, opacity;
+}
+
+/* Header Delays */
+.delay-100 {
+  animation-delay: 0.1s;
+}
+.delay-200 {
+  animation-delay: 0.2s;
+}
+.delay-300 {
+  animation-delay: 0.3s;
+}
+
+/* Grid Stagger Delays (Targeting project cards) */
+.work-grid .project-card.anim-work-fade:nth-child(1) {
+  animation-delay: 0.3s;
+}
+.work-grid .project-card.anim-work-fade:nth-child(2) {
+  animation-delay: 0.4s;
+}
+.work-grid .project-card.anim-work-fade:nth-child(3) {
+  animation-delay: 0.5s;
+}
+.work-grid .project-card.anim-work-fade:nth-child(4) {
+  animation-delay: 0.6s;
+}
+.work-grid .project-card.anim-work-fade:nth-child(5) {
+  animation-delay: 0.7s;
+}
+.work-grid .project-card.anim-work-fade:nth-child(6) {
+  animation-delay: 0.8s;
+}
+.work-grid .project-card.anim-work-fade:nth-child(n + 7) {
+  animation-delay: 0.9s;
+}
+
+/* Contact Section Delay */
+.my-work-contact-wrapper.anim-work-fade {
+  animation-delay: 0.8s;
+}

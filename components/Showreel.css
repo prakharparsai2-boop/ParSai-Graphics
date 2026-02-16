@@ -1,0 +1,342 @@
+.showreel-section {
+  padding: 4rem 0;
+  position: relative;
+  z-index: 10;
+  overflow: hidden;
+}
+
+.relative-z {
+  position: relative;
+  z-index: 10;
+}
+
+/* Content Layout */
+.showreel-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  width: 100%;
+}
+
+/* Video Wrapper */
+.video-wrapper {
+  position: relative;
+  width: 100%;
+  border-radius: 0.75rem;
+  overflow: hidden;
+  aspect-ratio: 16 / 9;
+  background-color: #000;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 40px -10px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+}
+
+/* Vimeo Container */
+.vimeo-embed-container {
+  width: 100%;
+  height: 100%;
+  pointer-events: none; /* Let clicks pass to custom overlay */
+}
+
+/* Ensure iframe fills container */
+.vimeo-embed-container iframe {
+  width: 100%;
+  height: 100%;
+}
+
+/* Click Surface */
+.video-click-surface {
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  cursor: pointer;
+}
+
+/* --- Desktop Overlay Controls (Hover) --- */
+.desktop-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+  pointer-events: none; /* Allow click through to surface mostly */
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, transparent 40%);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+/* Only show on desktop via media query later, but handle hover logic */
+.video-wrapper:hover .desktop-overlay.visible,
+.desktop-overlay.visible {
+  opacity: 1;
+}
+
+/* Center Play Button */
+.center-play-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 5rem;
+  height: 5rem;
+  background-color: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(8px);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  pointer-events: auto;
+  cursor: pointer;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  transition: background-color 0.2s;
+}
+
+.center-play-button:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+.ml-1 {
+  margin-left: 0.25rem; /* Optical correction for play icon */
+}
+
+/* Desktop Controls Bar */
+.desktop-controls-bar {
+  padding: 1.5rem 2rem;
+  width: 100%;
+  pointer-events: auto;
+}
+
+/* Custom Controls Component */
+.custom-controls {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+  color: white;
+  font-family: var(--font-sans);
+}
+
+/* Groups for spacing */
+.controls-nav-group {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.controls-right-group {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.control-btn {
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  transition:
+    color 0.2s,
+    opacity 0.2s;
+}
+
+.control-btn:hover {
+  color: var(--accent-color);
+  opacity: 1;
+}
+
+.play-pause-btn {
+  width: 2rem;
+}
+
+.nav-btn {
+  padding: 0.25rem;
+  border-radius: 4px;
+}
+
+.nav-btn:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.time-display {
+  font-variant-numeric: tabular-nums;
+  font-size: 0.8rem;
+  font-weight: 500;
+  opacity: 0.8;
+  min-width: 70px;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.progress-bar-container {
+  flex: 1;
+  height: 1.5rem; /* Hit area */
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+  margin: 0 0.5rem;
+}
+
+.progress-track {
+  width: 100%;
+  height: 4px;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 2px;
+  overflow: hidden;
+  transition: height 0.2s;
+}
+
+.progress-bar-container:hover .progress-track {
+  height: 6px;
+}
+
+.progress-fill {
+  height: 100%;
+  background-color: var(--accent-color);
+  width: 0%;
+  position: relative;
+}
+
+/* --- Mobile Controls (External Bar) --- */
+.mobile-controls-wrapper {
+  display: block; /* Visible by default on mobile */
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 0.75rem;
+  padding: 0.75rem 1rem;
+  margin-top: -0.5rem; /* Pull up closer to video */
+}
+
+/* Improved Mobile Layout: Stack play/nav/tools and progress bar if needed */
+.custom-controls.mobile-mode {
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  justify-content: space-between;
+}
+
+.custom-controls.mobile-mode .progress-bar-container {
+  order: -1; /* Move progress bar to top on mobile */
+  width: 100%;
+  margin: 0;
+  height: 1rem;
+}
+
+.custom-controls.mobile-mode .time-display {
+  font-size: 0.75rem;
+}
+
+/* --- Bottom Info & Navigation --- */
+.showreel-bottom-bar {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  width: 100%;
+  margin-top: 1rem;
+}
+
+.showreel-info-left {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.title-nav-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.showreel-title {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: 1.5rem;
+  color: white;
+  margin: 0;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+.video-count-badge {
+  font-size: 0.75rem;
+  font-weight: 600;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 0.2rem 0.5rem;
+  border-radius: 99px;
+  color: var(--text-muted);
+}
+
+.showreel-subtitle {
+  font-size: 0.875rem;
+  color: var(--accent-color);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 500;
+}
+
+.showreel-info-right {
+  max-width: 100%;
+}
+
+.showreel-description {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* --- Media Queries --- */
+
+/* Mobile / Tablet Styles (Default above) */
+.desktop-overlay {
+  display: none; /* Hide hover controls on touch devices */
+}
+
+/* Desktop Styles */
+@media (min-width: 1024px) {
+  .showreel-section {
+    padding: 8rem 0 6rem;
+  }
+
+  /* Show Hover Overlay on Desktop */
+  .desktop-overlay {
+    display: flex;
+  }
+
+  /* Hide External Mobile Bar on Desktop */
+  .mobile-controls-wrapper {
+    display: none;
+  }
+
+  /* Layout Adjustments */
+  .showreel-bottom-bar {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+
+  .showreel-info-left {
+    max-width: 50%;
+  }
+
+  .showreel-title {
+    font-size: 2rem;
+  }
+
+  .showreel-info-right {
+    max-width: 40%;
+    text-align: right;
+  }
+}
+
+@media (min-width: 1536px) {
+  .showreel-section {
+    padding: 10rem 0 8rem;
+  }
+}
