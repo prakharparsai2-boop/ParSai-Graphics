@@ -1,0 +1,51 @@
+.website-bg-wrapper {
+  position: relative;
+  background-color: var(--bg-color);
+  overflow: clip;
+  /* Ensure seamless connection with previous section */
+  margin-top: -2px;
+  min-height: 100vh;
+}
+
+.website-bg-layer {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.website-bg-wrapper .bg-glow {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(120px);
+}
+
+.bg-glow-purple-left {
+  top: 10%;
+  left: -15%;
+  width: 60vw;
+  height: 60vw;
+  background-color: rgba(234, 179, 8, 0.025); /* Purple-600 */
+}
+
+.bg-glow-indigo-right {
+  bottom: 20%;
+  right: -10%;
+  width: 70vw;
+  height: 70vw;
+  background-color: rgba(59, 130, 246, 0.04); /* Indigo-600 */
+}
+
+.website-bg-wrapper .bg-noise {
+  position: absolute;
+  inset: 0;
+  background-image: url("https://grainy-gradients.vercel.app/noise.svg");
+  opacity: 0.2;
+  mix-blend-mode: overlay;
+  filter: brightness(1);
+}
+
+.relative-z {
+  position: relative;
+  z-index: 10;
+}

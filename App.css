@@ -1,0 +1,54 @@
+.app-wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  transition: opacity 0.8s ease-in-out, filter 0.8s ease-in-out;
+}
+
+.app-wrapper.loading {
+  opacity: 0;
+  filter: blur(10px);
+  pointer-events: none;
+}
+
+.app-wrapper.loaded {
+  opacity: 1;
+  filter: blur(0);
+}
+
+main {
+  flex: 1;
+}
+
+.route-loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(to right, transparent, var(--accent-color, #eab308), transparent);
+  animation: route-loading 1.5s infinite linear;
+  z-index: 9999;
+}
+
+@keyframes route-loading {
+  0% {
+    transform: scaleX(0);
+    transform-origin: left;
+  }
+
+  49% {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+
+  50% {
+    transform: scaleX(1);
+    transform-origin: right;
+  }
+
+  100% {
+    transform: scaleX(0);
+    transform-origin: right;
+  }
+}
