@@ -1,2 +1,0 @@
-# ParSai-Graphics
-Portfolio Website
